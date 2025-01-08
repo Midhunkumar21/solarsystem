@@ -19,12 +19,9 @@ jobs:
         with:
           node-version: 18
 
-       - name: Set Environment Variables
-        env:
-          MONGO_URI: 'mongodb+srv://mithun21012000:<db_password>@cluster0.knv1a.mongodb.net/'
-
       - name: Install Dependencies
         run: npm install
 
       - name: Unit Testing
         run: npm test
+        
