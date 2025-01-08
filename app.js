@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-mongoose.connect('MONGO_URI=mongodb://username:password@host:port/database', {
+mongoose.connect('mongodb+srv://mithun21012000:<db_password>@cluster0.knv1a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     user: 'mithun21012000',
     pass: 's6ZzVoARzci8JZTx',
     useNewUrlParser: true,
