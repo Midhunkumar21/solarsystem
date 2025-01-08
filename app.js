@@ -11,18 +11,16 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-// mongoose.connect('mongodb+srv://mithun21012000:<db_password>@cluster0.knv1a.mongodb.net/', {
-//     user: 'mithun21012000',
-//     pass: 's6ZzVoARzci8JZTx',
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// }, function(err) {
-//     if (err) {
-//         console.log("error!! " + err)
-//     } else {
-//       //  console.log("MongoDB Connection Successful")
-//     }
-// })
+mongoose.connect('mongodb+srv://mithun21012000:s6ZzVoARzci8JZTx@cluster0.knv1a.mongodb.net/', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, function(err) {
+    if (err) {
+        console.log("error!! " + err);
+    } else {
+        console.log("MongoDB Connection Successful");
+    }
+});
 
 var Schema = mongoose.Schema;
 
