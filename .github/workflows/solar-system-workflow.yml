@@ -36,7 +36,7 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
 
-     - name: Docker Image for Testing
+      - name: Docker Image for Testing
         run: |
           docker images
           # Add additional commands here if needed to test the built image, like running it:
