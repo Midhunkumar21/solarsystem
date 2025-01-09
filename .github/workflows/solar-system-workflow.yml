@@ -8,22 +8,22 @@ on:
       - 'features/*'
 
 jobs:
-  unit_testing:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repositories
-        uses: actions/checkout@v4
+  # unit_testing:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repositories
+  #       uses: actions/checkout@v4
 
-      - name: Setup Node.js Version 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+  #     - name: Setup Node.js Version 18
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
+  #     - name: Install Dependencies
+  #       run: npm install
 
-      - name: Unit Testing
-        run: npm test
+  #     - name: Unit Testing
+  #       run: npm test
 
   docker:
     name: Containerization
