@@ -12,10 +12,10 @@ jobs:
     name: Containerization
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repositories
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Dockerhub Login
+      - name: DockerHub Login
         uses: docker/login-action@v2.2.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -25,8 +25,8 @@ jobs:
         uses: docker/login-action@v2.2.0
         with:
           registry: ghcr.io
-          username: ${{ github-repository_owner }}
-          password: ${{ secrets.DOCKER_TOKEN }}          
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Docker Build for Testing
         uses: docker/build-push-action@v3
@@ -36,13 +36,13 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
 
-      - name: Docker Image for Testing
+     - name: Docker Image for Testing
         run: |
           docker images
           # Add additional commands here if needed to test the built image, like running it:
           # docker run -d -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
 
-      - name: Container registry push
+      - name: Container Registry Push
         uses: docker/build-push-action@v3
         with:
           context: .
@@ -50,4 +50,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
-            ghcr.io${{ github-repository_owner }}/github-action-nginx:latest
+            ghcr.io/${{ github.repository_owner }}/github-action-nginx:latest
