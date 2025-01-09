@@ -26,7 +26,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: true
+          push: false
           tags: ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
 
       - name: Docker Image for Testing
@@ -34,3 +34,11 @@ jobs:
           docker images
           # Add additional commands here if needed to test the built image, like running it:
           # docker run -d -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
+
+      - name: Docker push for Testing
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
