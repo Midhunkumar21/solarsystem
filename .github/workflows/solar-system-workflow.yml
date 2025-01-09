@@ -1,4 +1,4 @@
-name: Solar System Workflows
+name: Solar System Workflow
 
 on:
   workflow_dispatch:
@@ -22,10 +22,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Set Environment Variables
-        run: echo "MONGO_URI=mongodb+srv://mithun21012000:s6ZzVoARzci8JZTx@cluster0.knv1a.mongodb.net/" >> $GITHUB_ENV
-
       - name: Unit Testing
-        env:
-          MONGO_URI: ${{ secrets.MONGO_URI }}
         run: npm test
+
+  docker:
+    name: Containerization
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repositories
+        uses: actions/checkout@v4
+
+      - name: Docker Login
+        uses: docker/login-action@v2.2.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
