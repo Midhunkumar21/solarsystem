@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repositories
         uses: actions/checkout@v4
 
-      - name: Docker Login
+      - name: Dockerhub Login
         uses: docker/login-action@v2.2.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
