@@ -49,5 +49,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-          ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
-          ghcr.io${{ github-repo-owner }}/github-action-nginx:latest
+            ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
+            ghcr.io${{ github-repo-owner }}/github-action-nginx:latest
