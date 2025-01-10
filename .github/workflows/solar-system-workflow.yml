@@ -63,21 +63,21 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
             ghcr.io/${{ github.repository_owner }}/github-action-nginx:latest
      
-dev-deployement:
-  needs: docker
-  runs-on: ubuntu-latest
-  steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+  dev-deployement:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
 
-      - name: install kubectl
-        uses: azure/setup-kubectl@v4
-        with:
-        version: 'v1.26.0'
+        - name: install kubectl
+          uses: azure/setup-kubectl@v4
+          with:
+          version: 'v1.26.0'
 
-      - name: patch kuberenetes cluster details
-      - run: |
-          kubectl version --short
-          echo____________________________________________
-          kubectl get nodes
-          
+        - name: patch kuberenetes cluster details
+        - run: |
+            kubectl version --short
+            echo____________________________________________
+            kubectl get nodes
+
