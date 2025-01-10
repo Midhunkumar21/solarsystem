@@ -87,3 +87,12 @@ jobs:
           echo ____________________________________________
           kubectl get nodes
 
+      - name: replace token
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: '{'
+          tokenSuffix: '}'
+          files: '["kubernetes/development/*.yaml"]'
+        env:
+          CDN: https://somecdn.com/...    
+
