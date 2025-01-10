@@ -7,7 +7,7 @@ on:
       - main
       - 'features/*'
 
-jobs1:
+jobs:
   docker:
     name: Containerization
     container:
