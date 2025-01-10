@@ -73,7 +73,7 @@ jobs:
         - name: install kubectl
           uses: azure/setup-kubectl@v4
           with:
-          version: 'v1.26.0'
+            version: 'v1.26.0'
 
         - name: patch kuberenetes cluster details
         - run: |
