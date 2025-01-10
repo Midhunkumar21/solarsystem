@@ -10,8 +10,8 @@ on:
 jobs:
   docker:
     name: Containerization
-    # container:
-    #  image: node:18
+    container:
+     image: docker
     services:
      redis:
       image: redis
