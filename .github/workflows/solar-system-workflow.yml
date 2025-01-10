@@ -1,4 +1,4 @@
-name: Solar System Workflows
+name: Solar System Workflow
 
 on:
   workflow_dispatch:
@@ -34,13 +34,14 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
 
       - name: Docker Image for Testing
         run: |
           docker images
-          # Add additional commands here if needed to test the built image, like running it:
-          # docker run -d -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
+          # Add additional commands to test the built image
+          # Example: docker run -d -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
 
       - name: Container Registry Push
         uses: docker/build-push-action@v3
