@@ -63,7 +63,7 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/github-action-nginx:latest
             ghcr.io/${{ github.repository_owner }}/github-action-nginx:latest
      
-  dev-deployement:
+  dev-deploy:
     needs: docker
     runs-on: ubuntu-latest
     steps:
