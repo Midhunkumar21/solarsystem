@@ -79,7 +79,7 @@ jobs:
         uses: azure/k8s-set-context@v4
         with:
           method: kubeconfig
-          kubeconfig: {{  secrets.KUBECONFIG  }}
+          kubeconfig: ${{  secrets.KUBECONFIG  }}
 
       - name: Patch Kubernetes Cluster Details
         run: |
