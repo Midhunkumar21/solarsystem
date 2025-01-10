@@ -67,17 +67,23 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-        - name: install kubectl
-          uses: azure/setup-kubectl@v4
-          with:
-            version: 'v1.26.0'
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'v1.26.0'
 
-        - name: patch kuberenetes cluster details
-          run: |
-            kubectl version --short
-            echo____________________________________________
-            kubectl get nodes
+      - name: set kubeconfig file
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: {{  secrets.KUBECONFIG  }}
+
+      - name: Patch Kubernetes Cluster Details
+        run: |
+          kubectl version --short
+          echo ____________________________________________
+          kubectl get nodes
 
