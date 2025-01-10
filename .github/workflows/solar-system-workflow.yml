@@ -76,7 +76,7 @@ jobs:
             version: 'v1.26.0'
 
         - name: patch kuberenetes cluster details
-        - run: |
+          run: |
             kubectl version --short
             echo____________________________________________
             kubectl get nodes
