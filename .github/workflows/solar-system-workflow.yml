@@ -10,6 +10,10 @@ on:
 jobs:
   docker:
     name: Containerization
+    services:
+     redis:
+      image: redis
+      port: 6379:6379
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
